@@ -36,7 +36,7 @@ class CustomersController extends Controller
     	$customer->save();
         */
 
-        $customer = Customer::create($data);
+        Customer::create($data);
 
     	return back();
     }
