@@ -1,5 +1,7 @@
 @extends('layout')
 
+@section('title', 'Customer List')
+	
 @section('content')
 
 <row class="col-12">
