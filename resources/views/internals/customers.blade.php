@@ -25,6 +25,15 @@
 			<input type="text" name="message" value="{{old('email')}}" class="form-control">
 			<div>{{$errors->first('message')}}</div>
 		</div>
+
+		<div class="form-group">
+			<label for="active">Status:</label>
+			<select name="active" id="active" class="form-control">
+				<option value="" disabled>Select customer status</option>
+				<option value="1">Active</option>
+				<option value="0">Inactive</option>
+			</select>
+		</div>
 		
 		<button type="submit" class="btn btn-primary">Add Customer</button>
 		@csrf
@@ -32,12 +41,22 @@
 </row>
 
 <hr>
-
-<row class="col-12">
-	<ul>
-		@foreach($customers as $customer)
-			<li>{{$customer->name}} <span class="text-muted">({{$customer->email}})</span> {{$customer->message}}</li>
-		@endforeach
-	</ul>
-</row>
+<div class="row">
+	<row class="col-6">
+		<h3>Active Customers</h3>
+		<ul>
+			@foreach($activeCustomers as $activeCustomer)
+				<li>{{$activeCustomer->name}} <span class="text-muted">({{$activeCustomer->email}})</span> {{$activeCustomer->message}}</li>
+			@endforeach
+		</ul>
+	</row>
+	<row class="col-6">
+		<h3>Inactive Customers</h3>
+		<ul>
+			@foreach($inactiveCustomers as $inactiveCustomer)
+				<li>{{$inactiveCustomer->name}} <span class="text-muted">({{$inactiveCustomer->email}})</span> {{$inactiveCustomer->message}}</li>
+			@endforeach
+		</ul>
+	</row>
+</div>
 @endsection
