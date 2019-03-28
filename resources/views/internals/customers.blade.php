@@ -18,6 +18,11 @@
 			<input type="text" name="email" value="{{old('email')}}" class="form-control">
 			<div>{{$errors->first('email')}}</div>
 		</div>
+		<label for="email">Message:</label>
+		<div class="form-group">
+			<input type="text" name="message" value="{{old('email')}}" class="form-control">
+			<div>{{$errors->first('message')}}</div>
+		</div>
 		
 		<button type="submit" class="btn btn-primary">Add Customer</button>
 		@csrf
@@ -29,7 +34,7 @@
 <row class="col-12">
 	<ul>
 		@foreach($customers as $customer)
-			<li>{{$customer->name}} <span class="text-muted">({{$customer->email}})</span></li>
+			<li>{{$customer->name}} <span class="text-muted">({{$customer->email}})</span> {{$customer->message}}</li>
 		@endforeach
 	</ul>
 </row>
